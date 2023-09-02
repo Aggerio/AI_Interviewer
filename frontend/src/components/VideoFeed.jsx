@@ -1,69 +1,60 @@
-import React, { useState, useRef, useEffect } from "react";
-import { io } from "socket.io-client";
+import React from "react";
 
-function VideoFeed() {
-  const videoRef = useRef(null);
-  const [mediaStream, setMediaStream] = useState(null);
-
-  const streamCamVideo = () => {
-    const constraints = { audio: true, video: { width: 1920, height: 1080 } };
+class VideoFeed extends React.Component {
+  constructor(props) {
+    super(props);
+    this.streamCamVideo = this.streamCamVideo.bind(this)
+  }
+  streamCamVideo() {
+    var constraints = { audio: true, video: { width: 1920, height: 1080 } };
     navigator.mediaDevices
       .getUserMedia(constraints)
-      .then((stream) => {
-        videoRef.current.srcObject = stream;
-        videoRef.current.removeAttribute("controls");
-        videoRef.current.onloadedmetadata = (e) => {
-          videoRef.current.play();
+      .then(function(mediaStream) {
+        // var video = document.querySelector("video");
+        var video = document.getElementById("videoElement")
+
+        video.srcObject = mediaStream;
+        video.removeAttribute("controls");
+        video.onloadedmetadata = function(e) {
+          video.play();
         };
-        setMediaStream(stream);
       })
-      .catch((err) => {
+      .catch(function(err) {
         console.log(err.name + ": " + err.message);
-      });
-  };
-
-  const stopCamVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
-  };
-
-  const playCamVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  };
-
-  const endCamVideo = () => {
-    if (mediaStream) {
-      const tracks = mediaStream.getTracks();
-      tracks.forEach((track) => {
-        track.stop();
-      });
-      videoRef.current.srcObject = null;
-    }
-  };
-
-  useEffect(() => {
-    // Perform any additional setup or side effects here
-    return () => {
-      // Cleanup or remove any event listeners if needed
-    };
-  }, []);
-
-  return (
-    <div>
-      <div id="container">
-        <video autoPlay={true} ref={videoRef}></video>
+      }); // always check for errors at the end.
+  }
+  stopCamVideo() {
+    var video = document.getElementById("videoElement");
+    video.pause();
+  }
+  playCamVideo() {
+    var video = document.getElementById("videoElement");
+    video.play();
+  }
+  EndCamVideo() {
+    var videoEl = document.getElementById('videoElement');
+    var stream = videoEl.srcObject;
+    var tracks = stream.getTracks();
+    tracks.forEach(function(track) {
+      // stopping every track
+      track.stop();
+    });
+    videoEl.srcObject = null;
+  }
+  render() {
+    return (
+      <div>
+        <div id="container">
+          <video autoPlay={true} id="videoElement" ></video>
+        </div>
+        <br />
+        <button onClick={this.streamCamVideo}>Start streaming</button>
+        <button onClick={this.stopCamVideo}>Pause streaming</button>
+        <button onClick={this.playCamVideo}>Continue streaming</button>
+        <button onClick={this.EndCamVideo}>End streaming</button>
       </div>
-      <br />
-      <button onClick={streamCamVideo}>Start streaming</button>
-      <button onClick={stopCamVideo}>Pause streaming</button>
-      <button onClick={playCamVideo}>Continue streaming</button>
-      <button onClick={endCamVideo}>End streaming</button>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default VideoFeed;
-
