@@ -1,32 +1,34 @@
-from flask import Flask, render_template
-from flask_cors import CORS, cross_origin
-from flask_socketio import SocketIO, emit, join_room, leave_room
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
-cors = CORS(app,resources={r"/*":{"origins":"*"}})
-# socketio = SocketIO(app, async_mode="eventlet" )
+cors = CORS(app)
+socketio = SocketIO(app)
 
-socketio = SocketIO(app, cors_allowed_origins="*")
+@app.route("/offer", methods=["POST"])
+def offer():
+    data = request.json
+    # Process the offer data and create an answer
+    # Send the answer back to the React component
+    print(f"received: {data}")
+    answer_data = "YUPPP"
+    return jsonify(answer_data)
 
-@cross_origin
-@app.route("/")
-def index():
-    return render_template("index.html")
+@app.route("/answer", methods=["POST"])
+def answer():
+    data = request.json
+    # Process the answer from the React component
+    # Establish the WebRTC connection
+    return "OK"
 
 
-@cross_origin
-@socketio.on("join_room")
-def handle_join_room(data):
-    room = data["room"]
-    join_room(room)
-    print(f"User joined room: {room}")
 
-
-@cross_origin
-@socketio.on("disconnect")
-def handle_disconnect():
-    print("Client disconnected")
+@socketio.on('connect')
+def handle():
+    print("Connected")
 
 if __name__ == "__main__":
-    socketio.run(app, host="localhost", port=5000)
+    # app.run(host="localhost", port=5000)
+    socketio.run(app, port=5000)
 
