@@ -1,0 +1,13 @@
+fronted --> react
+backend --> flask / django (to be decided)
+database --> firebase/google cloud bucket
+
+TODO --> 
+o) Get the webcam feed with audio from the user  --> DONE 
+o) Learn how to send the camera feed to a server to be processed
+o) Setup the remote code execution environment
+o) Find relevant test cases + coding questions
+o) Get the assembly ai api key and learn to use it 
+o) Get the open ai api key and learn to use it
+o) Make a functionality to read the candidate's resume and quote from it 
+o) Make the ai answer questions at the end 
