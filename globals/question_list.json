@@ -1,0 +1,94 @@
+[
+    {
+        "question_id": "Q123",
+        "question_markdown": "Write a Python function that reverses a given string.",
+        "sample_testcase": {
+            "input": "Hello, World!",
+            "output": "!dlroW ,olleH"
+        },
+        "hidden_testcases": [
+            {
+                "input": "OpenAI",
+                "output": "IAepnO"
+            },
+            {
+                "input": "12345",
+                "output": "54321"
+            }
+        ],
+        "default_code": "def reverse_string(s):\n    return s[::-1]",
+        "waiting_time_minutes": 45
+    },
+    {
+        "question_id": "Q12345",
+        "question_markdown": "Write a Python function that takes two integers `a` and `b` and returns their sum.",
+        "sample_testcase": {
+            "input": "5, 3",
+            "output": "8"
+        },
+        "hidden_testcases": [
+            {
+                "input": "0, 0",
+                "output": "0"
+            },
+            {
+                "input": "-2, 5",
+                "output": "3"
+            },
+            {
+                "input": "100, -200",
+                "output": "-100"
+            }
+        ],
+        "default_code": "def add(a, b):\n    return a + b",
+        "waiting_time": "30 minutes"
+    },
+    {
+        "question_id": "Q54321",
+        "question_markdown": "Write a Python function that finds the factorial of a given integer `n`.",
+        "sample_testcase": {
+            "input": "5",
+            "output": "120"
+        },
+        "hidden_testcases": [
+            {
+                "input": "0",
+                "output": "1"
+            },
+            {
+                "input": "3",
+                "output": "6"
+            },
+            {
+                "input": "10",
+                "output": "3628800"
+            }
+        ],
+        "default_code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)",
+        "waiting_time": "45 minutes"
+    },
+    {
+        "question_id": "Q98765",
+        "question_markdown": "Write a Python function that checks if a given string `s` is a palindrome.",
+        "sample_testcase": {
+            "input": "racecar",
+            "output": "True"
+        },
+        "hidden_testcases": [
+            {
+                "input": "hello",
+                "output": "False"
+            },
+            {
+                "input": "level",
+                "output": "True"
+            },
+            {
+                "input": "A man, a plan, a canal, Panama",
+                "output": "True"
+            }
+        ],
+        "default_code": "def is_palindrome(s):\n    s = s.lower().replace(' ', '')\n    return s == s[::-1]",
+        "waiting_time": "60 minutes"
+    }
+]

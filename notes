@@ -1,13 +1,63 @@
 fronted --> react
-backend --> flask / django (to be decided)
+backend --> flask 
 database --> firebase/google cloud bucket
 
+
+
+SERVERS AND THEIR PORTS --> 
+code_execution --> localhost:5000
+video_server --> localhost:5001
+speech_to_text --> localhost:8081
+interview_response_server --> localhost:6000
+
+CENTRAL GLOBAL FILE PATHS --> 
+
+interview_response = 
+/home/aggerio/code_playground/ai_interviewer/globals/interview_response
+
+question_list =
+/home/aggerio/code_playground/ai_interviewer/globals/question_list.json
+
+variable required real time =
+/home/aggerio/code_playground/ai_interviewer/globals/vrrt.json
+
+the resume pdf of the candidate = 
+/home/aggerio/code_playground/ai_interviewer/globals/resume.pdf
+
+
+VARIABLES IN vrrt.json --> 
+0) interview started
+1) current stage
+2) current question id from question_list.json
+3) current confidence 
+4) current_eye_position 
+5) current head position 
+6) current number of people in frame
+
+
+DOING --> 
+Setup test cases for the judge 0 run time --> DONE 
+
+
+ROADMAP --> 
+1) Realtime video and audio processing of the user
+2) Setup a remote code sandbox to execute code
+3) Feed chatgpt that code 
+
+Step 1)
 TODO --> 
 o) Get the webcam feed with audio from the user  --> DONE 
-o) Learn how to send the camera feed to a server to be processed
-o) Setup the remote code execution environment
-o) Find relevant test cases + coding questions
-o) Get the assembly ai api key and learn to use it 
-o) Get the open ai api key and learn to use it
-o) Make a functionality to read the candidate's resume and quote from it 
+o) Learn how to send the camera feed to a server to be processed --> DONE
+
+Step 2)
+o) Setup the remote code execution environment --> Setup Judge0 setup of monaco --> DONE
+is done --> will start implementing the backend for the judging environment --> DONE
+o) Find relevant test cases + coding questions --> DONE
+
+Step 3)
+o) Get the open ai api key and learn to use it --> DONE 
+o) Integrate chatgpt into stage 1, stage 2 and stage 3 --> done in stage 1 and 2 incompletely
+
+Optional)
+o) Make a functionality to read the candidate's resume and quote from it --> DONE
 o) Make the ai answer questions at the end 

@@ -1,0 +1,14 @@
+##[pylyzer] failed /home/aggerio/code_playground/ai_interviewer/backend/interview_response/chatgpt.py 1695191777
+.openai = pyimport "openai"
+
+.json = pyimport "json"
+
+.resume = pyimport "resume"
+
+.___v155 = pyimport "dotenv"
+.load_dotenv: Failure
+.os = pyimport "os"
+
+.stage1_chatgpt: (interviewee_response: Obj) -> Never
+.stage2_chatgpt: (interviewee_response: Obj) -> NoneType
+.stage3_chatgpt: (interviewee_response: Obj) -> NoneType

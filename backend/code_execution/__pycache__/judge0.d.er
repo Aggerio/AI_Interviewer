@@ -1,0 +1,13 @@
+##[pylyzer] failed /home/aggerio/code_playground/ai_interviewer/backend/code_execution/judge0.py 1695145063
+.urllib3 = pyimport "urllib3"
+
+.___v155 = pyimport "urllib/parse"
+.urlencode: Failure
+.json = pyimport "json"
+
+.time = pyimport "time"
+
+.get_languages: () -> NoneType
+.submit_submission: (source_code: Obj, given_input: Obj, given_output: Obj, language_id: Obj) -> NoneType
+.get_submission_data: (token: Obj) -> {"Time Limit Exceeded", "Compilation Error", "Runtime Error", "Accepted", "Wrong Answer", }
+
