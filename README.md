@@ -1,6 +1,6 @@
 # Intellihire - Your AI Interviewer
 
-![product explaining image](https://github.com/Aggerio/AI_Interviewer/blob/Master/images/description.jpeg)
+![product explaining image](https://github.com/Aggerio/AI_Interviewer/blob/trial/design.jpeg)
 
 
 ## Features
